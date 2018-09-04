@@ -1,6 +1,6 @@
 {
     "name": "lynx-pdf",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "description":
         "Module for the lynx framework to enable the creation of PDF files",
     "main": "dist/index.js",

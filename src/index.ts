@@ -1,7 +1,7 @@
 import SimpleModule from "lynx-framework/simple.module";
 import * as puppeteer from "puppeteer";
 import * as fs from "fs";
-import uuid from "uuid/v4";
+import * as uuid from "uuid/v4";
 import { app } from "lynx-framework/app";
 
 function compileTemplate(template: string, context: any): Promise<any> {
@@ -33,6 +33,22 @@ function deleteFile(path: string): Promise<void> {
                 return rej(err);
             }
             return res();
+        });
+    });
+}
+
+function safeMakeDir(path: string): Promise<void> {
+    return new Promise((res, rej) => {
+        fs.exists(path, exsists => {
+            if (exsists) {
+                return res();
+            }
+            fs.mkdir(path, err => {
+                if (err) {
+                    return rej(err);
+                }
+                return res();
+            });
         });
     });
 }
@@ -79,6 +95,11 @@ export default class PdfModule extends SimpleModule {
         context: any = {},
         options: any = {}
     ): Promise<string> {
+        await Promise.all([
+            safeMakeDir(PdfModule.TMP_FOLDER),
+            safeMakeDir(PdfModule.OUTPUT_FOLDER)
+        ]);
+
         let generatedHtml = PdfModule.TMP_FOLDER + uuid() + ".html";
 
         if (!from.endsWith(".njk")) {
