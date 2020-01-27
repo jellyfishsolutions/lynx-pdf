@@ -1,8 +1,7 @@
 {
     "name": "lynx-pdf",
-    "version": "0.0.3",
-    "description":
-        "Module for the lynx framework to enable the creation of PDF files",
+    "version": "1.0.0",
+    "description": "Module for the lynx framework to enable the creation of PDF files",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
@@ -15,7 +14,11 @@
         "type": "git",
         "url": "git+https://github.com/jellyfishsolutions/lynx-pdf.git"
     },
-    "keywords": ["lynx", "pdf", "module"],
+    "keywords": [
+        "lynx",
+        "pdf",
+        "module"
+    ],
     "author": "Luca Roverelli <luca.roverelli@gmail.com>",
     "license": "Apache-2.0",
     "bugs": {
@@ -23,16 +26,16 @@
     },
     "homepage": "https://github.com/jellyfishsolutions/lynx-pdf#readme",
     "dependencies": {
-        "lynx-framework": "^0.5.9",
-        "multer": "^1.3.1",
-        "puppeteer": "^1.7.0",
-        "uuid": "^3.3.2"
+        "lynx-framework": "^1.0.1",
+        "multer": "^1.4.2",
+        "puppeteer": "^2.0.0",
+        "uuid": "^3.4.0"
     },
     "devDependencies": {
-        "del": "^3.0.0",
-        "gulp": "^4.0.0",
-        "gulp-typescript": "^5.0.0-alpha.3",
-        "merge2": "^1.2.2",
-        "typescript": "^2.9.2"
+        "del": "^5.1.0",
+        "gulp": "^4.0.2",
+        "gulp-typescript": "^6.0.0-alpha.1",
+        "merge2": "^1.3.0",
+        "typescript": "^3.7.5"
     }
 }
